@@ -4,6 +4,34 @@
 
 let typedTextSpan = undefined;
 let cursorSpan = undefined;
+let answerSpanText = undefined;
+let greetingsTextSpan = undefined;
+
+
+const greetingsArray = [
+    "Hey",
+    "Salut",
+    "Bonjour",
+    "Bjr",
+    "Wsh",
+    "YO",
+    "Wesh",
+    "Obrigado",
+    "Hiiii",
+    "Salutations",
+    "Hola",
+    "cc"
+]
+
+const answerArray = [
+    "En fait c'est <b>Laurie-Anne</b>...",
+    "Non c'est <b>Laurie-Anne</b>",
+    "C'est <b>Laurie-Anne</b>...",
+    "Mon blaze c'est <b>Laurie-Anne</b>",
+    "C'EST <b>LAURIE-ANNE</b> 😡😡😡",
+    "Je m'appelle <b>Laurie-Anne</b> au fait..."
+]
+
 const textArray = [
     "Barbara",
     "Emma", "Léa", "Chloé", "Manon", "Inès",
@@ -100,6 +128,10 @@ function erase() {
 document.addEventListener("DOMContentLoaded", function () {
     typedTextSpan = document.querySelector(".typed-text");
     cursorSpan = document.querySelector(".cursor");
+    greetingsTextSpan = document.querySelector(".greetings-text");
+    answerSpanText = document.querySelector(".answer-text");
+    greetingsTextSpan.innerHTML = greetingsArray[Math.floor(Math.random() * greetingsArray.length)]
+    answerSpanText.innerHTML = answerArray[Math.floor(Math.random() * answerArray.length)]
   // On DOM Load initiate the effect
   if (textArray.length) setTimeout(type, newTextDelay + 250);
 });

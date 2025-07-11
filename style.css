@@ -26,6 +26,10 @@ h1 {
 
 }
 
+b {
+  font-weight: bold;
+}
+
 .right-bubble .teams-bubble {
       background-color: #292929;
 
