@@ -6,7 +6,8 @@ let typedTextSpan = undefined;
 let cursorSpan = undefined;
 let answerSpanText = undefined;
 let greetingsTextSpan = undefined;
-
+let ourBubbleArticle = undefined
+let first = true;
 
 const greetingsArray = [
     "Hey",
@@ -90,7 +91,7 @@ const textArray = [
 
 const typingDelay = 200;
 const erasingDelay = 100;
-const newTextDelay = 100; // Delay between current and next text
+const newTextDelay = 1000; // Delay between current and next text
 let textArrayIndex = 0;
 let charIndex = 0;
 
@@ -102,6 +103,10 @@ function type() {
     charIndex++;
     setTimeout(type, typingDelay);
   } else {
+    if(first) {
+      first = false
+      ourBubbleArticle.style.animation="fadeInBottom 0.5s normal 0s forwards";
+    }
     cursorSpan.classList.remove("typing");
     setTimeout(erase, newTextDelay);
   }
@@ -130,6 +135,8 @@ document.addEventListener("DOMContentLoaded", function () {
     cursorSpan = document.querySelector(".cursor");
     greetingsTextSpan = document.querySelector(".greetings-text");
     answerSpanText = document.querySelector(".answer-text");
+    ourBubbleArticle = document.querySelector(".right-bubble")
+
     greetingsTextSpan.innerHTML = greetingsArray[Math.floor(Math.random() * greetingsArray.length)]
     answerSpanText.innerHTML = answerArray[Math.floor(Math.random() * answerArray.length)]
   // On DOM Load initiate the effect
