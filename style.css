@@ -12,42 +12,6 @@ body {
     background-color: #1F1F1F;
 }
 
-
-/* ----------- Non-Retina Screens ----------- */
-@media screen 
-  and (min-device-width: 1200px) 
-  and (-webkit-min-device-pixel-ratio: 1) { 
-    body {
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            grid-template-areas: 
-                ". . ."
-                ". content ."
-                ". . .";
-    }
-
-
-
-}
-
-/* ----------- Retina Screens ----------- */
-@media screen 
-  and (min-device-width: 1200px) 
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (min-resolution: 192dpi) { 
-
-        body {
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            grid-template-areas: 
-                ". . ."
-                ". content ."
-                ". . .";
-            
-        }
-}
-
-
 main {
     grid-area: content;
     display: flex;
@@ -55,29 +19,32 @@ main {
 }
 
 h1 {
+    
     font-family: 'Segoe UI', -apple-system, sans-serif;
-    font-size: xx-large;
+    font-size: 32pt;
     color: white;
+
 }
 
-.teams-bubble-other {
-    background-color: #292929;
-  border-radius: 10px;
-      display: block;
-    height: 60px;
-    width: 70%;
-    margin-bottom: 30px;
-    padding: 20px;
+.right-bubble .teams-bubble {
+      background-color: #292929;
+
 }
 
-.teams-bubble-me {
+.left-bubble .teams-bubble {
     background-color: #323348;
+
+}
+
+.teams-bubble {
     border-radius: 10px;
     display: block;
-    height: 60px;
+        min-height: 60px;  
+    height: fit-content;
+    min-height: 100px;
     width: 70%;
-    margin-bottom: 30px;
-    padding: 20px;
+    margin-bottom: 70px;
+    padding: 30px;
 
 }
 
@@ -122,4 +89,31 @@ span.cursor.typing {
   100% {
     background-color: #ccc;
   }
+}
+
+
+/* Small tablets and larger mobile devices (481px - 768px) */
+@media (min-width: 481px) {
+
+}
+
+/* Tablets and small laptops (769px - 1024px) */
+@media (min-width: 769px) {
+  body {
+            grid-template-columns: 1fr 3fr 1fr;
+        }
+}
+
+/* Large desktops and high-resolution screens (1025px and up) */
+@media (min-width: 1025px) {
+  body {
+            grid-template-columns: 1fr 2fr 1fr;
+        }
+}
+
+/* Extra-large screens (1440px and up) */
+@media (min-width: 1440px) {
+  body {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
 }
